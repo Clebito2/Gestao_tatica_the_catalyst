@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual Operacional - The Catalyst Project (V10)</title>
+    <title>Manual Operacional - The Catalyst Project (V11)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -85,48 +85,45 @@
         
         .font-serif { font-family: 'Merriweather', serif; }
         
-        /* Timeline */
-        .timeline-item {
+        /* Timeline Vertical Aprimorada */
+        .timeline-vertical {
             position: relative;
-            padding-bottom: 2.5rem;
-            padding-left: 2.5rem;
-        }
-        .timeline-item:last-child { padding-bottom: 0; }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            width: 2px;
-            height: 100%;
-            background-color: #00e800;
-        }
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: -7px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: #06192a;
-            border: 3px solid #00e800;
+            padding-left: 2rem;
+            border-left: 2px solid #00e800;
+            margin-left: 1rem;
         }
         
+        .timeline-node {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-node::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 0.2rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            background: #06192a;
+            border: 3px solid #00e800;
+            border-radius: 50%;
+        }
+
         /* Tabelas */
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ffffff20; }
         th { color: #00e800; font-weight: 600; }
         tbody tr:hover { background-color: #0A243D80; }
         
-        /* 5 Cores Neon para Crachás */
+        /* Badges de Cores */
         .badge-blue { background: rgba(0, 255, 255, 0.15); border: 1px solid cyan; color: cyan; }
         .badge-purple { background: rgba(255, 0, 255, 0.15); border: 1px solid magenta; color: magenta; }
         .badge-green { background: rgba(0, 255, 0, 0.15); border: 1px solid #00ff00; color: #00ff00; }
         .badge-yellow { background: rgba(255, 255, 0, 0.15); border: 1px solid yellow; color: yellow; }
         .badge-red { background: rgba(255, 0, 0, 0.15); border: 1px solid red; color: #ff5555; }
 
-        /* Módulos Grid Detalhado */
+        /* Módulos Grid */
         .module-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -141,33 +138,22 @@
             flex-direction: column;
             gap: 10px;
         }
-        .module-number {
-            color: #00e800;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
         
-        /* Listas Detalhadas */
-        .detail-list li {
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            color: #cccccc;
-            border-bottom: 1px dashed #ffffff10;
-            padding-bottom: 4px;
-            line-height: 1.6;
+        /* Lista Detalhada */
+        .detailed-list li {
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            color: #d1d5db;
+            font-size: 0.9rem;
         }
-        .detail-list strong {
-            color: #ffffff;
-            font-weight: 600;
-        }
+        .detailed-list strong { color: #fff; }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
     <div class="bg-yellow-600/20 border-b border-yellow-600 text-center py-2 px-4 text-xs text-yellow-200 font-bold uppercase tracking-widest">
-        ⚠ Documento de Planejamento Estratégico (Sugestivo) - Sujeito a Alterações
+        ⚠ Documento de Planejamento Estratégico (V11) - Baseado em Transcrições de Reunião
     </div>
 
     <header class="fixed top-8 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm shadow-lg border-b border-gray-800">
@@ -184,7 +170,7 @@
                 <div class="h-8 w-px bg-gray-600 hidden md:block"></div>
                 <div class="hidden md:block">
                     <h1 class="text-lg font-bold text-white">Manual Operacional</h1>
-                    <p class="text-xs text-gray-400">Project Management System V10</p>
+                    <p class="text-xs text-gray-400">Planejamento Detalhado & Execução</p>
                 </div>
             </div>
             <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Logo Live" class="h-8 opacity-70">
@@ -195,13 +181,13 @@
         
         <div class="mb-8 border-b border-gray-700">
             <nav class="nav-container">
-                <button class="tab-button active" onclick="showTab('conceito')">Conceito & Ecossistema</button>
+                <button class="tab-button active" onclick="showTab('conceito')">Conceito & Mentoria</button>
                 <button class="tab-button" onclick="showTab('timeline')">Linha do Tempo (Detalhada)</button>
-                <button class="tab-button" onclick="showTab('checklists')">Checklists (Técnicos/Legais)</button>
+                <button class="tab-button" onclick="showTab('checklists')">Checklists Técnicos</button>
                 <button class="tab-button" onclick="showTab('staff')">Staff & Produção</button>
                 <button class="tab-button" onclick="showTab('experiencia')">Crachás & Networking</button>
-                <button class="tab-button" onclick="showTab('marketing')">Marketing</button>
-                <button class="tab-button" onclick="showTab('roteiros')">Roteiros & Scripts</button>
+                <button class="tab-button" onclick="showTab('marketing')">Marketing & Reality</button>
+                <button class="tab-button" onclick="showTab('roteiros')">Roteiros</button>
                 <button class="tab-button" onclick="showTab('financeiro')">Financeiro</button>
             </nav>
         </div>
@@ -209,124 +195,167 @@
         <div id="tab-content-container">
 
             <div id="conceito" class="tab-content active">
-                <div class="card p-8">
-                    <h2 class="text-3xl font-bold text-highlight mb-6">Ecossistema Catalyst</h2>
-                    <p class="text-gray-300 font-serif mb-6">A transformação de "Reagente" (operacional) em "Catalisador" (estratégico). O projeto não é um evento isolado, mas uma esteira de produtos de alta performance.</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="p-6 bg-gray-900/50 rounded-lg border border-blue-500/30">
-                            <h3 class="text-lg font-bold text-white mb-2">1. Experience (Maio)</h3>
-                            <p class="text-sm text-gray-400">Evento de 1 dia ("Entry Drug"). Foco em Networking e Pitch.</p>
+                <div class="card p-8 mb-8">
+                    <div class="mb-10 border-b border-gray-700 pb-10">
+                        <h2 class="text-3xl font-bold text-highlight mb-4">Origem e Conceito do Projeto</h2>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">A Origem</h4>
+                                <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                    O projeto nasce da união entre a expertise operacional e comportamental da Live Consultoria (Luiz Portal) e a visão de expansão e M&A de Ibrahim Boufleur. Identificou-se no mercado um vácuo: empresários que crescem faturamento (100k -> 100mi) mas perdem qualidade de vida e controle, tornando-se escravos da operação.
+                                </p>
+                                <h4 class="text-xl font-bold text-white mb-2">O Conceito: Reagente vs. Catalisador</h4>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    Na química, o <strong>Reagente</strong> participa da reação e é consumido por ela (O empresário que se desgasta, tem burnout). O <strong>Catalisador</strong> acelera a reação sem ser consumido, saindo do processo com a mesma energia (O CEO Antifrágil). Nosso objetivo é transformar reagentes em catalisadores.
+                                </p>
+                            </div>
+                            <div class="bg-gray-900/50 p-6 rounded-lg border border-green-500/20">
+                                <h4 class="text-xl font-bold text-white mb-2">Objetivos Estratégicos</h4>
+                                <ul class="list-disc list-inside text-gray-400 text-sm space-y-2">
+                                    <li><strong>Não vender curso:</strong> Vender um ecossistema de transformação.</li>
+                                    <li><strong>Inacessibilidade Estratégica:</strong> Posicionar o Ibrahim como o "Ápice" inalcançável para valorizar o ticket da mentoria.</li>
+                                    <li><strong>Prova de Execução:</strong> Usar a estrutura da Live (Esquadrão Técnico) para garantir ROI e "devolução do dinheiro" em caso de falha.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="p-6 bg-gray-900/50 rounded-lg border border-yellow-500/30">
-                            <h3 class="text-lg font-bold text-white mb-2">2. Livros (Autoridade)</h3>
-                            <p class="text-sm text-gray-400">Material didático. Prazo de 9 meses. Ibrahim (Visão) + Luiz (Método).</p>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-white mb-6 border-l-4 border-green-500 pl-4">Mentoria Líder Rentável: A Grade Técnica</h3>
+                    <div class="module-grid">
+                        <div class="module-item border-l-4 border-l-yellow-500">
+                            <span class="text-green-400 font-bold text-xs uppercase">Prólogo</span>
+                            <h4 class="text-white font-semibold">Mentalidade do Dono</h4>
+                            <p class="text-xs text-gray-400">Preparação emocional para pressão e crescimento (Antifragilidade).</p>
                         </div>
-                        <div class="p-6 bg-gray-900/50 rounded-lg border border-green-500/30">
-                            <h3 class="text-lg font-bold text-white mb-2">3. Summit (High Ticket)</h3>
-                            <p class="text-sm text-gray-400">Imersão de 2.5 dias. O ápice do networking e conteúdo técnico.</p>
-                        </div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 01</span><h4 class="text-white font-semibold">Fundamentos & Sócios</h4><p class="text-xs text-gray-400">Acordo de sócios e governança inicial.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 02</span><h4 class="text-white font-semibold">Produto & Valor</h4><p class="text-xs text-gray-400">Precificação e engenharia de oferta.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 03</span><h4 class="text-white font-semibold">Marketing 360º</h4><p class="text-xs text-gray-400">Branding e aquisição de clientes.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 04</span><h4 class="text-white font-semibold">Comercial</h4><p class="text-xs text-gray-400">Máquina de vendas e CRM.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 05</span><h4 class="text-white font-semibold">Pessoas & Cultura</h4><p class="text-xs text-gray-400">Recrutamento e rituais de gestão.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 06</span><h4 class="text-white font-semibold">Finanças</h4><p class="text-xs text-gray-400">DRE, fluxo de caixa e indicadores.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 07</span><h4 class="text-white font-semibold">Tributário</h4><p class="text-xs text-gray-400">Eficiência fiscal e elisão lícita.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 08</span><h4 class="text-white font-semibold">Operação (PMO)</h4><p class="text-xs text-gray-400">Processos e gestão de projetos.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 09</span><h4 class="text-white font-semibold">Tecnologia & IA</h4><p class="text-xs text-gray-400">Automação e inteligência artificial.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 10</span><h4 class="text-white font-semibold">Crédito</h4><p class="text-xs text-gray-400">Alavancagem e relacionamento bancário.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 11</span><h4 class="text-white font-semibold">Jurídico</h4><p class="text-xs text-gray-400">Blindagem patrimonial e contratos.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 12</span><h4 class="text-white font-semibold">Gestão de Crise</h4><p class="text-xs text-gray-400">Turnaround e negociação de dívidas.</p></div>
+                        <div class="module-item"><span class="text-green-400 font-bold text-xs uppercase">Mód 13</span><h4 class="text-white font-semibold">Setor Público</h4><p class="text-xs text-gray-400">B2G e licitações.</p></div>
+                        <div class="module-item border-l-4 border-l-blue-500"><span class="text-green-400 font-bold text-xs uppercase">Mód 14</span><h4 class="text-white font-semibold">Growth & M&A</h4><p class="text-xs text-gray-400">Escala e preparação para Exit.</p></div>
                     </div>
                 </div>
             </div>
 
             <div id="timeline" class="tab-content">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="space-y-12">
                     
-                    <div class="card p-8">
-                        <h3 class="text-xl font-bold text-highlight mb-4">1. Pré-Evento e Cotações (Jan/Fev)</h3>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <strong class="text-white block">10 de Janeiro: O Start</strong>
-                                <ul class="detail-list mt-2">
-                                    <li>Assinatura formal do contrato do projeto.</li>
-                                    <li>Levantamento de dotação orçamentária inicial.</li>
-                                    <li>Definição oficial do cronograma macro.</li>
+                    <div class="card p-8 border-l-4 border-blue-500">
+                        <h2 class="text-3xl font-bold text-white mb-2">Evento 1: The Experience (Maio)</h2>
+                        <p class="text-gray-400 mb-6">Foco: Networking, Autoridade e Venda da Mentoria (Entry Drug).</p>
+                        
+                        <div class="timeline-vertical">
+                            <div class="timeline-node">
+                                <h4 class="text-xl font-bold text-highlight">Janeiro: Fundação & Identidade</h4>
+                                <ul class="detailed-list mt-2">
+                                    <li><strong>10/01:</strong> Assinatura do Contrato do Projeto.</li>
+                                    <li><strong>Identidade Visual:</strong> Contratação do <strong>Fábio</strong> utilizando o subsídio do <strong>Sebrae</strong> (via CNPJ Live) para otimizar custo (~R$ 3.800).</li>
+                                    <li><strong>Reality Show (Início):</strong> Descaracterização do escritório da TecnoIT para branding "Live/Catalyst". Início das filmagens de bastidores.</li>
                                 </ul>
                             </div>
-                            <div class="timeline-item">
-                                <strong class="text-white block">Identidade & Visual</strong>
-                                <ul class="detail-list mt-2">
-                                    <li>Contratação de empresa para Identidade Visual do evento.</li>
-                                    <li><strong>Sugestão Estratégica:</strong> Utilizar serviço do <strong>Fábio</strong>, aproveitando o subsídio do <strong>Sebrae</strong> (Custo aprox. R$ 3.800) através do CNPJ da Live.</li>
-                                    <li>Adaptação da identidade para todas as peças (site, redes, palco).</li>
+                            <div class="timeline-node">
+                                <h4 class="text-xl font-bold text-highlight">Fevereiro: Comercial & Cotações</h4>
+                                <ul class="detailed-list mt-2">
+                                    <li><strong>Time Comercial:</strong> Formalização com Daniel + contratação de 2 a 3 vendedores.</li>
+                                    <li><strong>Planejamento MKT:</strong> Contratação de <strong>Bruno Lesche</strong> (~R$ 3.000) para estratégia de tráfego/impulsionamento.</li>
+                                    <li><strong>Imprensa:</strong> Contratação da <strong>Karol</strong> (Assessoria) - Contrato de 5 meses.</li>
+                                    <li><strong>Jogada Ensaiada de Local:</strong> Cotação e pré-reserva no <strong>Metropolitan</strong> (140 pax - menor) e <strong>K-Hotel</strong> (maior/premium). Divulgar o menor, lotar, e migrar para o maior.</li>
+                                    <li><strong>Infraestrutura:</strong> Cotação de Painel de LED (Ref: VP Club), Som e Luz.</li>
                                 </ul>
                             </div>
-                            <div class="timeline-item">
-                                <strong class="text-white block">Cotações Críticas (Dez/Jan)</strong>
-                                <ul class="detail-list mt-2">
-                                    <li><strong>Marketing/Tráfego:</strong> Cotar com <strong>Bruno Lesche</strong> para planejamento de impulsionamento e engajamento (~R$ 3.000).</li>
-                                    <li><strong>Vídeo/Conteúdo:</strong> Cotar com o estúdio/agência que já atende o Ibrahim (manter padrão visual).</li>
-                                    <li><strong>Imprensa:</strong> Contratação da <strong>Karol</strong> para Assessoria de Imprensa (Contrato de 5 meses).</li>
-                                    <li><strong>Infraestrutura:</strong> Cotar Painel de LED (referência: VP Club), sonorização, iluminação e forração.</li>
+                            <div class="timeline-node">
+                                <h4 class="text-xl font-bold text-highlight">Março/Abril: Tráfego & MVP</h4>
+                                <ul class="detailed-list mt-2">
+                                    <li><strong>Mentoria MVP:</strong> Rodar "Simulacro" com Bianca (RH) e pessoas próximas para validar entrega.</li>
+                                    <li><strong>Tráfego Pago:</strong> Início intensivo. Segmentação: Empresários > 30 anos.</li>
+                                    <li><strong>Grupos WhatsApp:</strong> Criação de grupos temáticos (IA, Finanças) para represar demanda.</li>
                                 </ul>
                             </div>
-                            <div class="timeline-item">
-                                <strong class="text-white block">Definição de Local (Jogada Ensaiada)</strong>
-                                <ul class="detail-list mt-2">
-                                    <li><strong>Cotação 1:</strong> Metropolitan (Capacidade ~140 pax). Mais econômico.</li>
-                                    <li><strong>Cotação 2:</strong> K-Hotel. Mais premium, custo mais elevado.</li>
-                                    <li><strong>Estratégia:</strong> Fazer pré-reserva em ambos. Divulgar o local menor, esgotar ingressos (Sold Out), criar escassez e migrar para o local maior já engatilhado.</li>
+                            <div class="timeline-node">
+                                <h4 class="text-xl font-bold text-highlight">Maio: Execução (Dia D)</h4>
+                                <ul class="detailed-list mt-2">
+                                    <li><strong>08:00:</strong> Coffee Break de Abertura + Welcome Drink (Gelo Seco).</li>
+                                    <li><strong>Tecnologia:</strong> Entrega de Diagnóstico Empresarial via <strong>IA em Tempo Real</strong> para participantes (Efeito Uau).</li>
+                                    <li><strong>Palco:</strong> Pitch de Vendas da Mentoria (Objetivo: 10% conversão).</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-node">
+                                <h4 class="text-xl font-bold text-highlight">Pós-Evento: Ressaca Positiva</h4>
+                                <ul class="detailed-list mt-2">
+                                    <li><strong>Debriefing:</strong> Reunião de análise de erros e acertos (D+3).</li>
+                                    <li><strong>Upsell:</strong> Contato ativo com leads que não compraram no evento.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card p-8">
-                        <h3 class="text-xl font-bold text-highlight mb-4">2. Execução, Reality e Entrega</h3>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <strong class="text-white block">Produção de Conteúdo "Reality Show" (Jan-Maio)</strong>
-                                <ul class="detail-list mt-2">
-                                    <li><strong>Local:</strong> Escritório da TecnoIT (descaracterizado/rebranded para Live/Catalyst).</li>
-                                    <li><strong>Conceito:</strong> Filmar os bastidores reais. Mostrar reuniões, decisões difíceis, erros de gravação e celebrações comerciais.</li>
-                                    <li><strong>Meta:</strong> Criar um documentário vivo da construção do evento para gerar conexão e autoridade antes mesmo dele acontecer.</li>
+                    <div class="card p-8 border-l-4 border-yellow-500">
+                        <h2 class="text-3xl font-bold text-white mb-2">Evento 2: O Livro (Autoridade)</h2>
+                        <p class="text-gray-400 mb-6">Prazo de Gestação: 8 a 9 meses (Jan a Out).</p>
+                        
+                        <div class="timeline-vertical">
+                            <div class="timeline-node">
+                                <h4 class="text-xl font-bold text-highlight">Fase 1: Produção (Jan-Jun)</h4>
+                                <ul class="detailed-list mt-2">
+                                    <li>Escrita dos manuscritos (Ibrahim: Visão / Luiz: Método).</li>
+                                    <li>Contratação de Ghost Writer/Revisor (se necessário).</li>
+                                    <li>Orçamento de Diagramação e Impressão Gráfica.</li>
                                 </ul>
                             </div>
-                            <div class="timeline-item">
-                                <strong class="text-white block">Estrutura Comercial (Imediato)</strong>
-                                <ul class="detail-list mt-2">
-                                    <li>Formalizar interesse do Daniel para liderar.</li>
-                                    <li>Montar time (Daniel + 2 ou 3 vendedores).</li>
-                                    <li>Estruturar Funil de Vendas.</li>
-                                    <li><strong>Objetivo:</strong> Vender a Mentoria e os Ingressos ANTES do evento existir fisicamente, usando a autoridade construída nas redes.</li>
-                                </ul>
-                            </div>
-                            <div class="timeline-item">
-                                <strong class="text-white block">Mentoria & Tecnologia (Diferencial)</strong>
-                                <ul class="detail-list mt-2">
-                                    <li>Rodar MVP (Simulacro) da Mentoria com pessoas próximas (Ex: Bianca) para validar a entrega.</li>
-                                    <li><strong>AÇÃO DE ALTO VALOR:</strong> Utilizar a ferramenta de IA da Live (já testada com Luiz) para entregar um <strong>Diagnóstico em Tempo Real</strong> para o Ibrahim ou para participantes selecionados no dia do evento.</li>
-                                </ul>
-                            </div>
-                            <div class="timeline-item">
-                                <strong class="text-white block">O Dia do Evento (Maio)</strong>
-                                <ul class="detail-list mt-2">
-                                    <li><strong>Entrega Tecnológica:</strong> Aplicação do Diagnóstico via IA no palco ou em estandes.</li>
-                                    <li>Gravação massiva de depoimentos e takes para vender o próximo Summit.</li>
+                            <div class="timeline-node">
+                                <h4 class="text-xl font-bold text-highlight">Fase 2: Lançamento (Out/Nov)</h4>
+                                <ul class="detailed-list mt-2">
+                                    <li>Evento de Noite de Autógrafos (Integrado a um encontro da Mentoria).</li>
+                                    <li>Distribuição para base de leads do Experience.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+
+                    <div class="card p-8 border-l-4 border-green-500">
+                        <h2 class="text-3xl font-bold text-white mb-2">Evento 3: The Summit (High Ticket)</h2>
+                        <p class="text-gray-400 mb-6">Imersão de 2.5 dias. Planejamento baseado no caixa do Experience.</p>
+                        
+                        <div class="timeline-vertical">
+                            <div class="timeline-node">
+                                <h4 class="text-xl font-bold text-highlight">Planejamento (Pós-Experience)</h4>
+                                <ul class="detailed-list mt-2">
+                                    <li>Definição de Data e Local (Provavelmente K-Hotel ou Resort).</li>
+                                    <li>Contratação de Celebridades (Via agência especializada/RP).</li>
+                                    <li>Venda exclusiva para alunos da Mentoria e Experience (LTV).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
             <div id="checklists" class="tab-content">
                 <div class="card p-8">
-                    <h2 class="text-3xl font-bold text-highlight mb-6">Checklists Detalhados de Produção</h2>
+                    <h2 class="text-3xl font-bold text-highlight mb-6">Checklists de Contratação & Produção</h2>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
-                            <h4 class="text-lg font-bold text-white mb-4 border-b border-gray-600 pb-2">Cotações & Contratações</h4>
+                            <h4 class="text-lg font-bold text-white mb-4 border-b border-gray-600 pb-2">Contratações & Serviços</h4>
                             <div class="overflow-x-auto">
                                 <table>
-                                    <thead><tr><th>Item</th><th>Detalhe/Obs</th><th>Status</th></tr></thead>
+                                    <thead><tr><th>Item</th><th>Detalhe da Ação</th><th>Status</th></tr></thead>
                                     <tbody>
-                                        <tr><td>Identidade Visual</td><td>Cotar Fábio (Via subsídio Sebrae).</td><td>⬜</td></tr>
-                                        <tr><td>Planejamento MKT</td><td>Cotar Bruno Lesche (Impulsionamento).</td><td>⬜</td></tr>
-                                        <tr><td>Assessoria Imprensa</td><td>Contratar Karol (Pacote 5 meses).</td><td>⬜</td></tr>
-                                        <tr><td>Vídeo/Maker</td><td>Cotar agência atual do Ibrahim.</td><td>⬜</td></tr>
-                                        <tr><td>Personalidades</td><td>Listar e cotar via RPs (Cachê/Tabela).</td><td>⬜</td></tr>
+                                        <tr><td>Identidade Visual</td><td>Contratar <strong>Fábio</strong> via subsídio Sebrae/CNPJ Live.</td><td>⬜</td></tr>
+                                        <tr><td>Planejamento MKT</td><td>Cotar/Contratar <strong>Bruno Lesche</strong> (~R$ 3k).</td><td>⬜</td></tr>
+                                        <tr><td>Assessoria Imprensa</td><td>Contratar <strong>Karol</strong> (Pacote 5 meses).</td><td>⬜</td></tr>
+                                        <tr><td>Vídeo/Maker</td><td>Cotar estúdio que já atende Ibrahim (manter padrão).</td><td>⬜</td></tr>
+                                        <tr><td>Comercial</td><td>Acordo com <strong>Daniel</strong> + Seleção de 2 vendedores.</td><td>⬜</td></tr>
+                                        <tr><td>Produção Operacional</td><td>Contratar Produtora Especializada (Staff/Montagem).</td><td>⬜</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -336,13 +365,13 @@
                             <h4 class="text-lg font-bold text-white mb-4 border-b border-gray-600 pb-2">Infraestrutura & Local</h4>
                             <div class="overflow-x-auto">
                                 <table>
-                                    <thead><tr><th>Item</th><th>Detalhe/Obs</th><th>Status</th></tr></thead>
+                                    <thead><tr><th>Item</th><th>Detalhe da Ação</th><th>Status</th></tr></thead>
                                     <tbody>
-                                        <tr><td>Local 1 (Menor)</td><td>Metropolitan (140 pax) - Cotação.</td><td>⬜</td></tr>
-                                        <tr><td>Local 2 (Maior)</td><td>K-Hotel (Premium) - Cotação.</td><td>⬜</td></tr>
-                                        <tr><td>Painel de LED</td><td>Alta resolução (Ref: VP Club).</td><td>⬜</td></tr>
-                                        <tr><td>Sonorização</td><td>Microfones, mesas, retornos.</td><td>⬜</td></tr>
-                                        <tr><td>Cenografia</td><td>Forração, móveis de palco, neon.</td><td>⬜</td></tr>
+                                        <tr><td>Local 1 (Menor)</td><td>Cotação <strong>Metropolitan</strong> (140 pax).</td><td>⬜</td></tr>
+                                        <tr><td>Local 2 (Maior)</td><td>Cotação <strong>K-Hotel</strong> (Stand-by para expansão).</td><td>⬜</td></tr>
+                                        <tr><td>Painel de LED</td><td>Alta resolução (Ref: VP Club). Cotar m².</td><td>⬜</td></tr>
+                                        <tr><td>Sonorização</td><td>Mics Headset (Ibrahim/Host) + Bastão (Plateia).</td><td>⬜</td></tr>
+                                        <tr><td>Internet</td><td>Link Dedicado para IA e Transmissão.</td><td>⬜</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -351,31 +380,30 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                         <div>
-                            <h4 class="text-lg font-bold text-white mb-4 border-b border-gray-600 pb-2">Legal & Segurança (Crítico)</h4>
+                            <h4 class="text-lg font-bold text-white mb-4 border-b border-gray-600 pb-2">Legal & Segurança (Obrigatório)</h4>
                             <div class="overflow-x-auto">
                                 <table>
-                                    <thead><tr><th>Item</th><th>Detalhe/Obs</th><th>Status</th></tr></thead>
+                                    <thead><tr><th>Item</th><th>Detalhe da Ação</th><th>Status</th></tr></thead>
                                     <tbody>
-                                        <tr><td>AVCB (Bombeiros)</td><td>Verificar validade do local escolhido.</td><td>⬜</td></tr>
-                                        <tr><td>Ambulância</td><td>Contratar UTI Móvel (Stand-by).</td><td>⬜</td></tr>
-                                        <tr><td>Seguro Evento</td><td>Responsabilidade Civil (Obrigatório).</td><td>⬜</td></tr>
-                                        <tr><td>Ecad</td><td>Recolhimento de direitos autorais.</td><td>⬜</td></tr>
-                                        <tr><td>Contratos</td><td>Jurídico para todo staff/fornecedor.</td><td>⬜</td></tr>
+                                        <tr><td>AVCB (Bombeiros)</td><td>Verificar validade junto ao local escolhido.</td><td>⬜</td></tr>
+                                        <tr><td>Ambulância</td><td>Contratar UTI Móvel (Stand-by no local).</td><td>⬜</td></tr>
+                                        <tr><td>Seguro RC</td><td>Seguro de Responsabilidade Civil Eventos.</td><td>⬜</td></tr>
+                                        <tr><td>Ecad</td><td>Recolhimento de taxas (Direitos Autorais).</td><td>⬜</td></tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
 
                         <div>
-                            <h4 class="text-lg font-bold text-white mb-4 border-b border-gray-600 pb-2">Tecnologia & Experiência</h4>
+                            <h4 class="text-lg font-bold text-white mb-4 border-b border-gray-600 pb-2">Experiência & A&B</h4>
                             <div class="overflow-x-auto">
                                 <table>
-                                    <thead><tr><th>Item</th><th>Detalhe/Obs</th><th>Status</th></tr></thead>
+                                    <thead><tr><th>Item</th><th>Detalhe da Ação</th><th>Status</th></tr></thead>
                                     <tbody>
-                                        <tr><td>Diagnóstico IA</td><td>Configurar ferramenta para entrega no dia.</td><td>⬜</td></tr>
-                                        <tr><td>Internet</td><td>Link dedicado redundante.</td><td>⬜</td></tr>
-                                        <tr><td>Credenciamento</td><td>Sistema ágil + Impressão etiquetas.</td><td>⬜</td></tr>
-                                        <tr><td>A&B</td><td>Coffee Break Início + Welcome Drink.</td><td>⬜</td></tr>
+                                        <tr><td>Diagnóstico IA</td><td>Configurar ferramenta para entrega dia do evento.</td><td>⬜</td></tr>
+                                        <tr><td>Coffee Break</td><td>Contratar para servir no <strong>INÍCIO</strong> (08:00).</td><td>⬜</td></tr>
+                                        <tr><td>Welcome Drink</td><td>Bebida com Gelo Seco (Efeito visual).</td><td>⬜</td></tr>
+                                        <tr><td>Jantar VIP</td><td>Organizar Jantar Pré-Evento (Black/Palestrantes).</td><td>⬜</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -385,74 +413,55 @@
             </div>
 
             <div id="staff" class="tab-content">
-                <div class="card p-8 mb-6 border border-green-500/30">
-                    <h2 class="text-2xl font-bold text-white mb-2"><i class="ph ph-users-three text-highlight"></i> Organograma Operacional</h2>
-                    <p class="text-gray-300 text-sm">
-                        <strong>Estratégia:</strong> O staff contratado para o <em>Experience</em> já deve ser testado visando o <em>Summit</em>.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="card p-6 border-l-4 border-l-yellow-500">
-                        <h3 class="text-xl font-bold text-highlight mb-2">Host / Apresentador</h3>
-                        <p class="text-gray-400 text-xs uppercase font-bold mb-2">Sugestão: Otaviano Costa</p>
-                        <p class="text-gray-300 text-sm">Responsável pela energia alta. Valida o Ibrahim e mantém a energia alta.</p>
-                    </div>
-                    
-                    <div class="card p-6 border-l-4 border-l-blue-500">
-                        <h3 class="text-xl font-bold text-highlight mb-2">Ibrahim (Personagem Chave)</h3>
-                        <p class="text-gray-300 text-sm">Visionário. Entra pontualmente. Acessibilidade dosada.</p>
-                    </div>
-
-                    <div class="card p-6 border-l-4 border-l-green-500">
-                        <h3 class="text-xl font-bold text-highlight mb-2">Luiz Portal</h3>
-                        <p class="text-gray-400 text-xs uppercase font-bold mb-2">Mentor de Liderança & Networking</p>
-                        <p class="text-gray-300 text-sm">Conecta as pontas, atua no networking e mentoria comportamental.</p>
-                    </div>
-
-                    <div class="card p-6">
-                        <h3 class="text-lg font-bold text-white mb-2">Logística & Receptivo (Ana)</h3>
-                        <p class="text-gray-400 text-sm">Responsável por passagens, hospedagem e "Facilities" para palestrantes.</p>
-                    </div>
-
-                    <div class="card p-6">
-                        <h3 class="text-lg font-bold text-white mb-2">Planejamento MKT (Bruno Lesche)</h3>
-                        <p class="text-gray-400 text-sm">Impulsionamento, engajamento e estratégia digital.</p>
-                    </div>
-
-                    <div class="card p-6">
-                        <h3 class="text-lg font-bold text-white mb-2">Assessoria de Imprensa (Karol)</h3>
-                        <p class="text-gray-400 text-sm">Gestão de imagem, PR e suporte comercial (5 meses).</p>
-                    </div>
-
-                    <div class="card p-6 border-l-4 border-l-pink-500">
-                        <h3 class="text-xl font-bold text-highlight mb-2">Sofia (Monitoramento)</h3>
-                        <p class="text-gray-300 text-sm"><strong>Função:</strong> "Limpeza de Terreno". Monitora redes, apaga críticas e bloqueia haters.</p>
-                    </div>
-
-                    <div class="card p-6 border-l-4 border-l-purple-500">
-                        <h3 class="text-lg font-bold text-highlight mb-2">Suporte ao Palestrante</h3>
-                        <p class="text-gray-400 text-sm">Recepciona na chegada, acompanha à sala VIP, briefing final de 30min, gestão de microfone e água no palco.</p>
-                    </div>
-
-                    <div class="card p-6">
-                        <h3 class="text-lg font-bold text-white mb-2">O Esquadrão Técnico</h3>
-                        <p class="text-gray-400 text-sm">Khelven (Financeiro), Advogados, Contadores. Presença física obrigatória.</p>
+                <div class="card p-8">
+                    <h2 class="text-2xl font-bold text-white mb-6">Organograma Operacional</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="card p-6 border-l-4 border-l-yellow-500">
+                            <h3 class="text-xl font-bold text-highlight mb-2">Host / Apresentador</h3>
+                            <p class="text-gray-400 text-xs uppercase font-bold mb-2">Sugestão: Otaviano Costa</p>
+                            <p class="text-gray-300 text-sm">Energia alta. Valida o Ibrahim.</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-blue-500">
+                            <h3 class="text-xl font-bold text-highlight mb-2">Ibrahim (Personagem Chave)</h3>
+                            <p class="text-gray-300 text-sm">Visionário. Acessibilidade dosada.</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-green-500">
+                            <h3 class="text-xl font-bold text-highlight mb-2">Luiz Portal</h3>
+                            <p class="text-gray-300 text-sm">Mentor Comportamental e Networking.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-white mb-2">Logística (Ana)</h3>
+                            <p class="text-gray-400 text-sm">Aéreo, Hotel, Transfer de Palestrantes.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-white mb-2">Planejamento MKT (Bruno Lesche)</h3>
+                            <p class="text-gray-400 text-sm">Impulsionamento e tráfego.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-white mb-2">Imprensa (Karol)</h3>
+                            <p class="text-gray-400 text-sm">PR e Imagem (5 meses).</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-purple-500">
+                            <h3 class="text-lg font-bold text-highlight mb-2">Suporte ao Palestrante</h3>
+                            <p class="text-gray-400 text-sm">Recepção, Sala VIP, Água, Microfone, Briefing Final.</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-pink-500">
+                            <h3 class="text-xl font-bold text-highlight mb-2">Sofia (Monitoramento)</h3>
+                            <p class="text-gray-300 text-sm">"Limpeza de Terreno". Redes Sociais.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-white mb-2">Esquadrão Técnico</h3>
+                            <p class="text-gray-400 text-sm">Khelven (Fin), Advogados. Presença física.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div id="experiencia" class="tab-content">
                 <div class="card p-8">
-                    <h2 class="text-3xl font-bold text-highlight mb-4">A Mecânica dos 5 Elementos</h2>
-                    <div class="p-4 bg-red-900/20 border border-red-500 rounded-lg mb-6">
-                        <h4 class="text-red-400 font-bold mb-1"><i class="ph ph-warning"></i> Regra de Ouro do Credenciamento</h4>
-                        <p class="text-sm text-gray-300">
-                            <strong>SEPARAR PARA CONECTAR:</strong> Famílias, sócios e amigos recebem cores diferentes propositalmente para forçar novas conexões.
-                        </p>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-5 gap-4 text-center mb-8">
+                    <h2 class="text-3xl font-bold text-highlight mb-4">Networking: 5 Elementos</h2>
+                    <p class="text-sm text-gray-300 mb-6">Regra: Separar sócios e famílias para forçar conexões.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-5 gap-4 text-center">
                         <div class="badge-blue p-4 rounded-lg"><span class="block text-xl font-bold">AZUL</span></div>
                         <div class="badge-purple p-4 rounded-lg"><span class="block text-xl font-bold">ROXO</span></div>
                         <div class="badge-yellow p-4 rounded-lg"><span class="block text-xl font-bold">DOURADO</span></div>
@@ -464,68 +473,36 @@
 
             <div id="marketing" class="tab-content">
                 <div class="card p-8">
-                    <h2 class="text-3xl font-bold text-highlight mb-6">Marketing: "Bastidores & Reality Show"</h2>
-                    
+                    <h2 class="text-3xl font-bold text-highlight mb-6">Marketing: "Bastidores & Reality"</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div class="p-6 bg-gray-900/50 rounded-lg border border-purple-500/30">
-                            <h3 class="text-xl font-bold text-white mb-2"><i class="ph ph-film-strip text-purple-400"></i> Conceito "Reality Show"</h3>
-                            <p class="text-gray-300 text-sm">
-                                <strong>Local:</strong> Escritório TecnoIT.<br>
-                                <strong>Ação:</strong> Filmar TUDO. Reuniões de staff, ligações de vendas, visitas técnicas e até os erros ("Cagadas").<br>
-                                <strong>Objetivo:</strong> Mostrar que é real. Humanizar o processo e gerar autoridade pela transparência.
-                            </p>
+                            <h3 class="text-xl font-bold text-white mb-2">Reality Show (TecnoIT)</h3>
+                            <p class="text-gray-300 text-sm">Filmar TUDO na TecnoIT (descaracterizada). Reuniões, erros, vitórias. Humanizar o processo.</p>
                         </div>
                         <div class="p-6 bg-gray-900/50 rounded-lg border border-orange-500/30">
-                            <h3 class="text-xl font-bold text-white mb-2"><i class="ph ph-megaphone text-orange-400"></i> Ruído Colaborativo</h3>
-                            <p class="text-gray-300 text-sm">
-                                Todo o staff (recepção, buffet, Karol) gera conteúdo: <em>"Vou trabalhar no evento do ano"</em>. Criar um movimento descentralizado.
-                            </p>
+                            <h3 class="text-xl font-bold text-white mb-2">Ruído Colaborativo</h3>
+                            <p class="text-gray-300 text-sm">Todo o staff gera conteúdo: "Vou trabalhar no evento do ano".</p>
                         </div>
                     </div>
-
-                    <div class="space-y-4 text-sm text-gray-300">
-                        <p><strong>Countdown:</strong> Contagem regressiva visual no Instagram (1º inscrito, 10º inscrito...).</p>
-                        <p><strong>Estratégia de Local (Jogada Ensaiada):</strong> Divulgar local menor -> Lotar -> Mudar para local maior (K-Hotel/Metropolitan) gerando prova de sucesso.</p>
-                    </div>
-                    
-                    <p class="text-gray-300 mt-6 font-bold">Ancoragem de Valor: "O conteúdo vale R$ 100k (Mentoria), mas hoje você acessa por R$ 397 (Experience)."</p>
+                    <p class="text-gray-300 font-bold">Ancoragem: R$ 100k (Mentoria) -> R$ 397 (Experience).</p>
                 </div>
             </div>
 
             <div id="roteiros" class="tab-content">
                  <div class="card p-8">
-                    <h2 class="text-3xl font-bold text-highlight mb-6">Roteiros por Fase (Estratégia de Documentação)</h2>
-                    
+                    <h2 class="text-3xl font-bold text-highlight mb-6">Roteiros por Fase</h2>
                     <div class="space-y-8">
                         <div class="border-l-2 border-blue-500 pl-4">
-                            <h4 class="text-lg font-bold text-white">Fase 1: O Embrião (Pré-Evento)</h4>
-                            <p class="text-sm text-gray-400 mb-2">Objetivo: Documentar a construção do zero.</p>
-                            <ul class="detail-list">
-                                <li>Filmar a reunião de contratação do Influencer/Host.</li>
-                                <li>Filmar o almoço de negócios com fornecedores (mostrando a negociação).</li>
-                                <li>Registrar os deslocamentos da equipe (Carro, Aeroporto).</li>
-                            </ul>
+                            <h4 class="text-lg font-bold text-white">Fase 1: O Embrião</h4>
+                            <p class="text-sm text-gray-400">Filmar contratação do Host, almoço com fornecedores, deslocamentos.</p>
                         </div>
-
                         <div class="border-l-2 border-yellow-500 pl-4">
-                            <h4 class="text-lg font-bold text-white">Fase 2: O Planejamento (Reality Show)</h4>
-                            <p class="text-sm text-gray-400 mb-2">Objetivo: Realismo e Conexão.</p>
-                            <ul class="detail-list">
-                                <li>Mostrar os erros de gravação ("Erros de gravação" nos perfis pessoais).</li>
-                                <li>Equipe comercial comemorando venda ou frustrada com dia ruim ("Hoje foi uma bosta").</li>
-                                <li>Rotina misturada: Ibrahim dando aula + Luiz escrevendo livro + Reunião do Summit.</li>
-                            </ul>
+                            <h4 class="text-lg font-bold text-white">Fase 2: O Planejamento</h4>
+                            <p class="text-sm text-gray-400">Mostrar erros de gravação, equipe comemorando/frustrada. Rotina real.</p>
                         </div>
-
                         <div class="border-l-2 border-green-500 pl-4">
                             <h4 class="text-lg font-bold text-white">Fase 3: Véspera e Dia D</h4>
-                            <p class="text-sm text-gray-400 mb-2">Objetivo: Hype e Imersão.</p>
-                            <ul class="detail-list">
-                                <li>Chegada dos palestrantes no hotel (Cansados, reais).</li>
-                                <li>Lives durante a montagem do palco ("Tá ficando massa").</li>
-                                <li>Ibrahim gravando de fora (Europa/Rio) gerando expectativa ("Tô chegando").</li>
-                                <li>Abertura do evento: Todo mundo conectado.</li>
-                            </ul>
+                            <p class="text-sm text-gray-400">Chegada dos palestrantes (cansados), Lives da montagem, Ibrahim chegando.</p>
                         </div>
                     </div>
                 </div>
@@ -534,44 +511,25 @@
             <div id="financeiro" class="tab-content">
                 <div class="space-y-8">
                     <div class="card p-8 border border-red-900/50 bg-red-900/10">
-                        <h2 class="text-2xl font-bold text-red-500 mb-2">Financeiro e Metas</h2>
-                        <p class="text-gray-300"><strong>Budget (Stop Loss):</strong> R$ 300.000,00.<br><strong>Target:</strong> Superar o budget via Bilheteria e Patrocínios (Fornecedores do Ibrahim, Permutas).</p>
+                        <h2 class="text-2xl font-bold text-red-500 mb-2">Budget (Stop Loss): R$ 300.000,00</h2>
+                        <p class="text-gray-300">Target: Superar via Bilheteria e Patrocínios.</p>
                     </div>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div class="card p-8">
-                            <h2 class="text-2xl font-bold text-highlight mb-6">Ingressos (The Experience)</h2>
-                            <div class="overflow-x-auto">
-                                <table>
-                                    <thead><tr><th>Categoria</th><th>Valor (R$)</th></tr></thead>
-                                    <tbody>
-                                        <tr><td>Experience (Entrada)</td><td>397,00</td></tr>
-                                        <tr><td>VIP Catalyst</td><td>897,00</td></tr>
-                                        <tr><td>Black Investidor</td><td>1.997,00</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <h2 class="text-2xl font-bold text-highlight mb-6">Ingressos (Experience)</h2>
+                            <ul class="detailed-list">
+                                <li><strong>Experience:</strong> R$ 397,00</li>
+                                <li><strong>VIP Catalyst:</strong> R$ 897,00</li>
+                                <li><strong>Black Investidor:</strong> R$ 1.997,00</li>
+                            </ul>
                         </div>
                         <div class="card p-8">
                             <h2 class="text-2xl font-bold text-highlight mb-6">Upsell (Mentoria)</h2>
-                            <div class="overflow-x-auto">
-                                <table>
-                                    <thead><tr><th>Modalidade</th><th>Investimento</th></tr></thead>
-                                    <tbody>
-                                        <tr><td>Mentoria Líder Rentável</td><td>R$ 150.000,00 (Cash)</td></tr>
-                                        <tr><td>Equity / Success Fee</td><td>Setup + 10% sobre Incremento</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <p class="text-sm text-gray-400 mt-4">Meta: 10% de Conversão para o High Ticket. Garantia de devolução (ROI).</p>
+                            <ul class="detailed-list">
+                                <li><strong>Mentoria (Cash):</strong> R$ 150.000,00</li>
+                                <li><strong>Equity:</strong> Setup + 10% do Incremento</li>
+                            </ul>
                         </div>
-                    </div>
-                    
-                    <div class="card p-8 border border-yellow-500/30">
-                        <h3 class="text-xl font-bold text-white mb-4">Estratégia VIP (Jantares)</h3>
-                        <ul class="detail-list">
-                            <li><strong>Jantar Pré-Evento:</strong> Exclusivo para ingressos Black e Palestrantes. Networking de alto nível na véspera.</li>
-                            <li><strong>Jantar Pós-Evento:</strong> Fechamento com investidores e Hot Seats selecionados.</li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -582,7 +540,7 @@
     <footer class="bg-black mt-12 border-t border-gray-800">
         <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <div class="mb-4 md:mb-0">
-                <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-34.png" alt="Logo Live Positivo" class="h-10 mx-auto md:mx-0 opacity-80">
+                <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-34.png" alt="Logo Live" class="h-10 mx-auto md:mx-0 opacity-80">
                 <p class="text-gray-500 mt-2 text-sm">Desenvolvido por AgeQuodAgis | Sistema de Inteligência Live</p>
             </div>
             <div>
